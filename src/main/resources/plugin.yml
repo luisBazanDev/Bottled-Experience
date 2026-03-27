@@ -2,3 +2,6 @@ name: BottleExp
 version: 1.0.0
 main: pl.inh.bottleExp.BottleExp
 api-version: 1.21
+commands:
+  bottleexpreload:
+    description: "Reloads plugin config"

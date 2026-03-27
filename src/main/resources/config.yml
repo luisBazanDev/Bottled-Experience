@@ -1,0 +1,14 @@
+bottle:
+  #name of received bottle
+  #available placeholders:
+  # - %levels%
+  # - %exp%
+  name: "§bBottled Exp"
+  #lore of received bottle
+  #available placeholders:
+  # - %levels%
+  # - %exp%
+  lore:
+    - "§7This bottle contains §b%levels% §7levels and §b%exp% §7exp"
+  #max level that can be stored by single bottle
+  max-levels: 200
