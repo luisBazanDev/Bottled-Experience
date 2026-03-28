@@ -23,7 +23,4 @@ public class BottleExp extends JavaPlugin {
   public void onDisable() {
     logger.info("disabled");
   }
-
-  
-
 }

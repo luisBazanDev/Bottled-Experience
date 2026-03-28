@@ -1,1 +1,1 @@
-rootProject.name = "BottleXP"
+rootProject.name = "bottled-experience"

@@ -1,5 +1,5 @@
-name: BottleExp
-version: 1.0.0
+name: Bottled-Experience
+version: 1.0.1
 main: pl.inh.bottleExp.BottleExp
 api-version: 1.21
 commands:

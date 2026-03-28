@@ -17,7 +17,7 @@ public class ReloadCommand implements CommandExecutor {
   public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command,
       @NotNull String label, @NotNull String @NotNull [] args) {
     plugin.reloadConfig();
-    sender.sendMessage("§7[§2BottleExp§7] §aConfig reloaded!");
+    sender.sendMessage("§7[§2Bottled Experience§7] §aConfig reloaded!");
     return true;
   }
 }

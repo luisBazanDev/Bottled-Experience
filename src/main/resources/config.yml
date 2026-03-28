@@ -1,14 +1,42 @@
+# BottleXP Configuration
+# Plugin by Inheritence
+#
+# ─────────────────────────────────────────────
+# COLOR SUPPORT
+# ─────────────────────────────────────────────
+# All text fields support the following color formats:
+#
+#  Legacy codes:     &a &c &l &o &r etc.
+#  Hex color:        &#RRGGBB
+#                    e.g. &#FFD700
+#
+#  MiniMessage:      <red>, <bold>, <#ff0000>
+#                    e.g. <gradient:#ff0000:#00ff00>text</gradient>
+#
+#  Inline gradient:  {gradient:#START:#END:text}
+#                    e.g. {gradient:#8A2BE2:#FF69B4:BottleXP}
+#
+#  Inline rainbow:   {rainbow:text}
+#                    {rainbow:SATURATION:BRIGHTNESS:OFFSET:text}
+#                    e.g. {rainbow:1.0:1.0:0.0:BottleXP}
+# ─────────────────────────────────────────────
+
 bottle:
-  #name of received bottle
-  #available placeholders:
-  # - %levels%
-  # - %exp%
-  name: "§bBottled Exp"
-  #lore of received bottle
-  #available placeholders:
-  # - %levels%
-  # - %exp%
+  type: EXPERIENCE_BOTTLE
+  # Name of the bottle item.
+  # Available placeholders:
+  #   %levels% - amount of levels stored
+  #   %exp%    - amount of raw exp stored
+  name: "{gradient:#38bdf8:#818cf8:Bottled Exp}"
+
+  # Lore of the bottle item.
+  # Available placeholders:
+  #   %levels% - amount of levels stored
+  #   %exp%    - amount of raw exp stored
   lore:
-    - "§7This bottle contains §b%levels% §7levels and §b%exp% §7exp"
-  #max level that can be stored by single bottle
+    - "&8▸ &7Contains &b%levels% &7levels"
+    - "&8▸ &7Raw exp&8: &b%exp%"
+
+  # Maximum level amount that can be stored in a single bottle.
+  # Players with more levels than this will not be able to bottle their exp.
   max-levels: 200

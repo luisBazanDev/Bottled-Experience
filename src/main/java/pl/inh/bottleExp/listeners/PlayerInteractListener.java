@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import pl.inh.bottleExp.BottleExp;
+import pl.inh.bottleExp.utils.ColorUtils;
 
 public class PlayerInteractListener implements Listener {
   private BottleExp plugin;
@@ -64,12 +65,11 @@ public class PlayerInteractListener implements Listener {
     }
 
     if (p.getInventory().firstEmpty() == -1) {
-      // brak miejsca — oddaj exp z powrotem
       p.giveExp(totalExp);
       return;
     }
 
-    ItemStack item = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
+    ItemStack item = new ItemStack(Material.valueOf(plugin.getConfig().getString("bottle.type")), 1);
     ItemMeta meta = item.getItemMeta();
 
     String name = plugin.getConfig().getString("bottle.name");
@@ -78,18 +78,19 @@ public class PlayerInteractListener implements Listener {
     final int finalTotalExp = totalExp;
     final int finalPlayerLevel = playerLevel;
 
-    meta.setDisplayName(name
+    meta.setDisplayName(ColorUtils.colorizeString(name
         .replace("%levels%", String.valueOf(finalPlayerLevel))
         .replace("%exp%", String.valueOf(finalTotalExp))
-    );
+    ));
     lore.replaceAll(line -> line
         .replace("%exp%", String.valueOf(finalTotalExp))
         .replace("%levels%", String.valueOf(finalPlayerLevel))
     );
-    meta.setLore(lore);
+    meta.setLore(ColorUtils.colorizeLoreStrings(lore));
     meta.getPersistentDataContainer().set(expKey, PersistentDataType.INTEGER, finalTotalExp);
 
     item.setItemMeta(meta);
+    e.getItem().setAmount(e.getItem().getAmount() - 1);
     p.getInventory().addItem(item);
   }
 
