@@ -28,11 +28,11 @@ public class PlayerInteractListener implements Listener {
     if (e.getItem() == null) return;
     if (e.getAction() != Action.RIGHT_CLICK_BLOCK && e.getAction() != Action.RIGHT_CLICK_AIR) return;
 
-    e.setCancelled(true);
-
     if (e.getItem().getType() == Material.GLASS_BOTTLE) {
+      e.setCancelled(true);
       handleGlassBottle(e);
     } else if (e.getItem().getType() == Material.EXPERIENCE_BOTTLE) {
+      e.setCancelled(true);
       handleExpBottle(e);
     }
   }
